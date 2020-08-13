@@ -1,17 +1,13 @@
 /* >>>>> -->>>>> ----- estilos demo ----- <<<<<-- <<<<< */
 #jd-carrusel {
-    width: 90%;
+    align-items: stretch;
+
+    width: 90%!important;
     max-width: 1000px;
     max-height: 80vh;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    overflow: hidden;
     margin: 50px auto;
-    position: relative;
 }
 .jd-item__carrusel {
-    min-width: 100%;
     min-height: 60vh;
     padding: 5px;
     border: solid 3px rgba(255, 255, 255, .7);
