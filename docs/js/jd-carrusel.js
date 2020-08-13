@@ -57,7 +57,6 @@ function jdSider(padre,item,timer){
     for(let i = 0; i < itemCarrusel.length; i++){
         itemCarrusel[i].addEventListener('touchstart', (event)=>{
             inicioX = event.touches[0].clientX;
-            console.log(inicioX);
         });
     };
     // swipe
