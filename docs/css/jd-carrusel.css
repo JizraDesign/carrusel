@@ -1,30 +1,3 @@
-/* >>>>> -->>>>> ----- carrusel items ----- <<<<<-- <<<<< */
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#jd-carrusel {
-    width: 90%;
-    max-width: 1000px;
-    height: 600px;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    overflow: hidden;
-    margin: 50px auto;
-    position: relative;
-}
-.jd-item__carrusel {
-    min-width: 100%;
-    min-height: 60vh;
-    border: solid 3px rgba(255, 255, 255, .7);
-    background: rgba(255, 255, 255, .7);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-
 /* >>>>> -->>>>> ----- cotrolls carrusel ----- <<<<<-- <<<<< */
 #jd-nav__carrusel{
     position: absolute;

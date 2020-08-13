@@ -87,10 +87,16 @@ code div{
     background: rgba(0,0,0,1);
     padding: 2px 5px;
 }
+.observaciones{
+    width: 100%;
+}
 .title__observaciones{
     color: rgba(255,255,255,.8);
     padding: 5px;
     margin-top: 10px;
+}
+.observaciones div{
+    overflow-X: scroll;
 }
 /* >>>>> -->>>>> ----- botones ----- <<<<<-- <<<<< */
 .cont__btn{
