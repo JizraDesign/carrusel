@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paginador horizontal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://jizradesign.github.io/releases/social-bar.css">
+    <link rel="stylesheet" href="css/jd-carrusel.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/myCarrusel.css">
-    <link rel="stylesheet" href="css/jd-carrusel.min.css">
-    <link rel="stylesheet" href="https://jizradesign.github.io/releases/social-bar.css">
+    
 </head>
 <body class="center">
     <header id="header" class="header center">
@@ -77,14 +79,14 @@
     </div>
     <section id="acercaDe" class="acercaDe">
         <article id="article__acercaDe" class="article__acercaDe">
-            <div class="title__acercaDe">Acerca de "Paginador tipo carrusel by Jizra" 0.01.2020.00 :</div>
+            <div class="title__acercaDe">Acerca de "Paginador tipo carrusel by Jizra" 16.06.2021.00 :</div>
             <p class="parrafo__acercaDe">
                 "Paginador tipo carrusel by Jizra" es un paginador horizontal con el clásico efecto de carrusel infinito construido en Html 5, Css 3 y javascript. <br>
                 Esta es la primera versión beta de este paginador por tanto cuenta con un funcionamiento muy básico, puede tener fallos y no funcionar en todos los navegadores.
             </p>
             <div class="cont__btn center">
                 <a class="btn center" href="https://github.com/JizraDesign/carrusel" target="_blank" rel="noopener" title="GitHub"><span class="text__btn"><i class="fab fa-github"></i> GitHub</span></a>
-                <a class="btn center" download="test" href="https://github.com/JizraDesign/light-box-gallery/archive/master.zip" target="_blank" rel="noopener" title="Descargar proyecto"><span class="text__btn"><i class="fas fa-file-archive"></i> Descargar</span></a>
+                <a class="btn center" download="test" href="https://github.com/JizraDesign/carrusel/archive/refs/heads/master.zip" target="_blank" rel="noopener" title="Descargar proyecto"><span class="text__btn"><i class="fas fa-file-archive"></i> Descargar</span></a>
             </div> 
         </article>
         <article id="instrucciones" class="instrucciones">
@@ -93,9 +95,8 @@
                 <div>1: Agrega la etiqueta de estilos entre tu etiqueta &lthead&gt</div>
                 <pre>
                 
-    
+&ltlink rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /&gt
 &ltlink rel="stylesheet" href="https://jizradesign.github.io/releases/jd-carrusel.min.css"&gt
-&ltscript src="https://kit.fontawesome.com/1f8614daef.js" crossorigin="anonymous"&gt&lt/script&gt
     
                 </pre>
                 <div>2: Agrega el maquetado html donde quieras poner tu paginador (puedes asignar el nombre que desees al id esto es solo un ejemplo).</div>
@@ -108,7 +109,7 @@
     &lt/article&gt
 &lt/section&gt
                 </pre>
-                <div>3:Repite este fragmento dentro de la etiqueta &ltdiv id="cont__paginador"&gt por cada elemento que quieras agregar (puedes asignar el nombre que desees a la clase esto es solo un ejemplo, solo recuerda que todos los elementos deben llevar la misma clase).</div>
+                <div>3:Repite este fragmento dentro de la etiqueta &ltdiv id="cont__paginador"&gt por cada elemento que quieras agregar (puedes asignar el nombre que desees a la clase esto es solo un ejemplo, recuerda que todos los elementos deben llevar la misma clase).</div>
                 <pre>
 
     
@@ -123,14 +124,30 @@
 &ltscript src="https://jizradesign.github.io/releases/jd-carrusel.min.js"&gt&lt/script&gt
                   
                 </pre>
-                <div>5: crea un script con la funcion: jdSider('#jd-carrusel','jd-item__carrusel','5000');</div>
+                <div>5: Crea un script con la clase: JdSider('#jd-carrusel','jd-item__carrusel');</div>
                 <pre>
                
 &ltscript&gt
 
     window.addEventListener('load', ()=> {
 
-        jdSider('#cont__paginador','item__paginador','5000');
+        const slider = new JdSlider('#jd-carrusel','jd-item__carrusel')
+        slider.run();
+
+    });
+
+&lt/script&gt
+                  
+                </pre>
+                <div>6: El método run() puede recibir dos atributos, el primero un booleano true para la reproducción automática, el segundo un number que es el tiempo de transición en mili segundos : slider.run(true, 5000);</div>
+                <pre>
+               
+&ltscript&gt
+
+    window.addEventListener('load', ()=> {
+
+        const slider = new JdSlider('#jd-carrusel','jd-item__carrusel')
+        slider.run(true, 5000);
 
     });
 
@@ -140,11 +157,13 @@
                 <article id="observaciones" class="observaciones">
                     <div class="title__observaciones">Como funciona? :</div>
                     <div>
-                        La función <span style="background:grey;">jdSider(<span style="background:green;">'#cont__paginador'</span>,<span style="background:orange;">'item__paginador'</span>,<span style="background:red;">'5000'</span>);</span> requiere tres parámetros: <br><br>
+                        La clase <span style="background:grey;">JdSlider(<span style="background:green;">'#cont__paginador'</span>,<span style="background:orange;">'item__paginador'</span>);</span> requiere dos atributos: <br><br>
                         
-                        id del elemento contenedor o padre jdSider(<span style="background:green;">'#cont__paginador'</span>,'item__paginador','5000'); <br><br>
-                        class de los elementos hijo jdSider('#cont__paginador',<span style="background:orange;">'item__paginador'</span>,'5000'); <br><br>
-                        tiempo en mili segundos para cambiar de elemento('#cont__paginador','item__paginador',<span style="background:red;">'5000'</span>); <br><br>
+                        id del elemento contenedor o padre JdSlider(<span style="background:green;">'#cont__paginador'</span>,'item__paginador'); <br><br>
+                        class de los elementos hijo JdSlider('#cont__paginador',<span style="background:orange;">'item__paginador'</span>); <br><br>
+                        El método run encargado de inicializar el silider tambien recive dos atributos, el primero un booleano true para la reproducción automática, el segundo un number que es el tiempo de transición en mili segundos .run(<span style="background:purple;">true</span>, <span style="background:red;">'5000'</span>) <br><br>
+                        .run() sin atributos deja el funcionamiento manual.
+                        
                     </div>
                 </article>
             </code>
@@ -153,12 +172,16 @@
         <p>Proximamente mas actualizaciones...</p>
         Programado con <i class="fas fa-heart"></i> por Jizra Design
     </footer>
+
     <script>
-        window.addEventListener('load', ()=> {
-            jdSider('#jd-carrusel','jd-item__carrusel','5000');
+
+        window.addEventListener( 'load', () => {
+            const slider = new JdSlider('#jd-carrusel','jd-item__carrusel')
+            slider.run(true, 5000);
         });
+
     </script>
-    <script src="https://kit.fontawesome.com/1f8614daef.js" crossorigin="anonymous"></script>
+
     <script src="https://jizradesign.github.io/releases/social-bar.js"></script>
     <script src="js/jd-carrusel.min.js"></script>
 </body>
